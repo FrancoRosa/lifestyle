@@ -29,10 +29,7 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to @article, notice: 'Article was successfully created.'
     else
-      puts "ZZZZZZZZZZZZZZZZZZZZZZZZZZ"
-      puts @article.errors.full_messages
-      puts "ZZZZZZZZZZZZZZZZZZZZZZZZZZ"
-      redirect_to new_article_path, alert: 'Article was not created.'
+      render :new, alert: 'Article was not created.'
     end
   end
 
@@ -42,7 +39,7 @@ class ArticlesController < ApplicationController
     if @article.update(article_params)
         redirect_to @article, notice: 'Article was successfully updated.'
     else
-      redirect_to @article, alert: 'Article was not updated.'
+      render :edit, alert: 'Article was not updated.'
     end
   end
 
