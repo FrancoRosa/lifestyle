@@ -26,28 +26,23 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
 
-    respond_to do |format|
-      if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
-        format.json { render :show, status: :created, location: @article }
-      else
-        format.html { render :new }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
-      end
+    if @article.save
+      redirect_to @article, notice: 'Article was successfully created.'
+    else
+      puts "ZZZZZZZZZZZZZZZZZZZZZZZZZZ"
+      puts @article.errors.full_messages
+      puts "ZZZZZZZZZZZZZZZZZZZZZZZZZZ"
+      redirect_to new_article_path, alert: 'Article was not created.'
     end
   end
 
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
-    respond_to do |format|
-      if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
-        format.json { render :show, status: :ok, location: @article }
-      else
-        format.html { render :edit }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
-      end
+    if @article.update(article_params)
+        redirect_to @article, notice: 'Article was successfully updated.'
+    else
+      redirect_to @article, alert: 'Article was not updated.'
     end
   end
 
@@ -69,6 +64,6 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:autor_id, :category_id, :title, :text)
+      params.require(:article).permit(:author_id, :title, :text, :image)
     end
 end

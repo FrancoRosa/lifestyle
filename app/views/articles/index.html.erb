@@ -5,8 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Autor</th>
-      <th>Category</th>
+      <th>Author</th>
       <th>Title</th>
       <th>Text</th>
       <th colspan="3"></th>
@@ -16,8 +15,7 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td><%= article.autor_id %></td>
-        <td><%= article.category_id %></td>
+        <td><%= article.author_id %></td>
         <td><%= article.title %></td>
         <td><%= article.text %></td>
         <td><%= link_to 'Show', article %></td>
