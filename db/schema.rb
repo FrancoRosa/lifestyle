@@ -10,17 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_30_060547) do
+ActiveRecord::Schema.define(version: 2020_06_30_064841) do
 
   create_table "articles", force: :cascade do |t|
-    t.integer "autor_id", null: false
-    t.integer "category_id", null: false
+    t.integer "author_id", null: false
     t.string "title"
     t.string "text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["autor_id"], name: "index_articles_on_autor_id"
-    t.index ["category_id"], name: "index_articles_on_category_id"
+    t.index ["author_id"], name: "index_articles_on_author_id"
+  end
+
+  create_table "articles_categories", force: :cascade do |t|
+    t.integer "article_id", null: false
+    t.integer "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_articles_categories_on_article_id"
+    t.index ["category_id"], name: "index_articles_categories_on_category_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -45,8 +52,9 @@ ActiveRecord::Schema.define(version: 2020_06_30_060547) do
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
-  add_foreign_key "articles", "autors"
-  add_foreign_key "articles", "categories"
+  add_foreign_key "articles", "users", column: "author_id"
+  add_foreign_key "articles_categories", "articles"
+  add_foreign_key "articles_categories", "categories"
   add_foreign_key "votes", "articles"
   add_foreign_key "votes", "users"
 end
