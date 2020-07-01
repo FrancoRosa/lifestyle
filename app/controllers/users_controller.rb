@@ -28,6 +28,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to @user, notice: 'User was successfully created.'
       session[:current_user] = @user.id
+      session[:current_user_name] = @user.name
     else
       render :new, alert: 'User was not created'
     end
@@ -39,6 +40,7 @@ class UsersController < ApplicationController
       redirect_to sign_in_path, alert: "User not found, try again"
     else
       session[:current_user] = @user.id
+      session[:current_user_name] = @user.name
       redirect_to root_path, notice: "Welcome #{@user.name}"
     end
   end

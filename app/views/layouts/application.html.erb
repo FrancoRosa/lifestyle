@@ -34,7 +34,7 @@
         </li>
       <% else %>
         <li>
-          Welcome <%= User.find(session[:current_user]).name %>
+          Welcome <%= session[:current_user_name] %>
         </li>
         <li>
           <%= link_to  "Sign out", sign_out_path %>
