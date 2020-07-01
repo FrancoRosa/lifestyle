@@ -5,6 +5,7 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.all
+    @categories = Category.all.order(:priority)
   end
 
   # GET /articles/1
@@ -15,7 +16,7 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   def new
     @article = Article.new
-    @categories = Category.all
+    @categories = Category.all.order(:priority)
   end
 
   # GET /articles/1/edit

@@ -4,8 +4,9 @@ class Article < ApplicationRecord
   has_many :votes, dependent: :destroy
 
   validates :author_id, presence: true
-  validates :title, presence: true, length: { in: 5..20 }
-  validates :text, presence: true, length: { in: 5..500 }
+  validates :title, presence: true, length: { in: 5..100 }
+  validates :text, presence: true, length: { in: 5..1000 }
 
   has_one_attached :image
+  scope :latest, -> { all.order(created_at: :desc).first }
 end
