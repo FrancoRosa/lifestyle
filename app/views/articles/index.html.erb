@@ -12,18 +12,19 @@
     </tr>
   </thead>
 
-  <tbody>
     <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.author_id %></td>
-        <td><%= article.title %></td>
-        <td><%= article.text %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div>
+        <ul>
+          <li><%= article.author.name %></li>
+          <li><%= article.title %></li>
+          <li><%= article.text %></li>
+          <%= image_tag article.image.variant(resize_to_limit: [300, 300]) %>    
+          <span><%= link_to 'Show', article %></span>
+          <span><%= link_to 'Edit', edit_article_path(article) %></span>
+          <span><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+        </ul>
+    </div>
     <% end %>
-  </tbody>
 </table>
 
 <br>
