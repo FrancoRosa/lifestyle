@@ -25,12 +25,22 @@
         </li>
       </ul>
       <ul class="nav-sign">
+      <% if session[:current_user].nil? %>
         <li>
-          <%= link_to  "Sign Up", articles_path %>
+          <%= link_to  "Sign Up", new_user_path %>
         </li>
         <li>
-          <%= link_to  "Sign In", articles_path %>
+          <%= link_to  "Sign In", sign_in_path %>
         </li>
+      <% else %>
+        <li>
+          Welcome <%= User.find(session[:current_user]).name %>
+        </li>
+        <li>
+          <%= link_to  "Sign out", sign_out_path %>
+        </li>
+      <% end %>
+        
       </ul>
     </nav>
     <main>

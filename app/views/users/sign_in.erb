@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+<%= form_with(model: @user, local: true, url: sign_in_path) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Sign in" %>
+  </div>
+<% end %>
+
+
+</p>
+
+<%= link_to 'Back', users_path %>

@@ -25,18 +25,32 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.save
+      redirect_to @user, notice: 'User was successfully created.'
+      session[:current_user] = @user.id
+    else
+      render :new, alert: 'User was not created'
     end
   end
 
+  def create_session
+    @user = User.find_by(user_params)
+    if @user.nil?
+      redirect_to sign_in_path, alert: "User not found, try again"
+    else
+      session[:current_user] = @user.id
+      redirect_to root_path, notice: "Welcome #{@user.name}"
+    end
+  end
+
+  def sign_in
+    @user = User.new
+  end
+
+  def sign_out
+    session[:current_user] = nil
+    redirect_to root_path, alert: 'See you soon!'
+  end
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
