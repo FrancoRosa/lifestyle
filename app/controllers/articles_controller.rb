@@ -20,6 +20,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    @categories = Category.all
   end
 
   # POST /articles
@@ -28,8 +29,10 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
+      ArticlesCategory.new(article: @article, category_id: category_params[:id]).save
       redirect_to @article, notice: 'Article was successfully created.'
     else
+      @categories = Category.all
       render :new, alert: 'Article was not created.'
     end
   end
@@ -38,7 +41,8 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1.json
   def update
     if @article.update(article_params)
-        redirect_to @article, notice: 'Article was successfully updated.'
+      ArticlesCategory.where(article_id: @article.id).first_or_create(category_id: category_params[:id])
+      redirect_to @article, notice: 'Article was successfully updated.'
     else
       render :edit, alert: 'Article was not updated.'
     end
@@ -63,5 +67,8 @@ class ArticlesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def article_params
       params.require(:article).permit(:author_id, :title, :text, :image)
+    end
+    def category_params
+      params.require(:category).permit(:id)
     end
 end

@@ -33,7 +33,11 @@
 
   <div class="field">
     <%= form.label :category %>
-    <%= collection_select(:category, :id, @categories, :id, :name, { selected: @categories.first.id } ) %>
+     <% if @article.categories.empty? %>
+       <%= collection_select(:category, :id, @categories, :id, :name, { selected: @categories.first.id } ) %>
+     <% else %>
+       <%= collection_select(:category, :id, @categories, :id, :name, { selected: @article.categories.first.id } ) %>
+     <% end %>
   </div>
 
 

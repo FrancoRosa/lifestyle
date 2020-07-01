@@ -14,11 +14,11 @@
   <strong>Text:</strong>
   <%= @article.text %>
 </p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @article.image.variant(resize_to_limit: [300, 300]) %>
-</p>
-
+<% if @article.image.attached? %>
+  <p>
+    <strong>Image:</strong>
+    <%= image_tag @article.image.variant(resize_to_limit: [300, 300]) %>
+  </p>
+<% end %>
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>

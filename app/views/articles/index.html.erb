@@ -18,7 +18,9 @@
           <li><%= article.author.name %></li>
           <li><%= article.title %></li>
           <li><%= article.text %></li>
-          <%= image_tag article.image.variant(resize_to_limit: [300, 300]) %>    
+          <% if article.image.attached? %>
+            <%= image_tag article.image.variant(resize_to_limit: [300, 300]) %>    
+          <% end %>
           <span><%= link_to 'Show', article %></span>
           <span><%= link_to 'Edit', edit_article_path(article) %></span>
           <span><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></span>
