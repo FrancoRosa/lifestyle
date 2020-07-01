@@ -22,8 +22,10 @@
             <%= image_tag article.image.variant(resize_to_limit: [300, 300]) %>    
           <% end %>
           <span><%= link_to 'Show', article %></span>
-          <span><%= link_to 'Edit', edit_article_path(article) %></span>
-          <span><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+          <% if article.author_id == session[:current_user] %>
+            <span><%= link_to 'Edit', edit_article_path(article) %></span>
+            <span><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+          <% end %>
         </ul>
     </div>
     <% end %>

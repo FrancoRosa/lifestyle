@@ -20,5 +20,8 @@
     <%= image_tag @article.image.variant(resize_to_limit: [300, 300]) %>
   </p>
 <% end %>
-<%= link_to 'Edit', edit_article_path(@article) %> |
+<% if @article.author_id == session[:current_user] %>
+  <%= link_to 'Edit', edit_article_path(@article) %> |
+  <%= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<% end %>
 <%= link_to 'Back', articles_path %>
