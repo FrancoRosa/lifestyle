@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css' %>
+    <%= stylesheet_link_tag 'https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap"' %>
   </head>
 
   <body>
@@ -15,8 +16,8 @@
     <p id="alert"><%= alert %></p>
     <nav class="nav-bar">
       <div class="nav-brand">
-        <img src="https://dronelife.com/wp-content/uploads/2017/03/5660001432229852186.png" alt="hackaday">
-        <p>Hackaday</p>
+        <p>HaCKaDAy</p>
+        <i class="fas fa-skull-crossbones text-orange"></i>
       </div>
       <ul class="nav-links">
         <li>
@@ -42,6 +43,9 @@
         <li>
           <%= link_to  "Sign In", sign_in_path %>
         </li>
+        <li>
+          <i class="fas fa-search text-grey-light"></i>
+        </li>
       <% else %>
         <li>
           Welcome <%= session[:current_user_name] %>
@@ -60,15 +64,15 @@
     <footer class="footer">
       <div class="logo">
         <img src="https://dronelife.com/wp-content/uploads/2017/03/5660001432229852186.png" alt="hackaday">
-        <p>hackaday</p>
+        <p class="text-white">hackaday</p>
       </div>
       <div class="policy">
-        <p>Privacy Policy</p>
-        <p>Terms & Conditions</p>
-        <p>Copyright 2020. All rights reserved</p>
+        <p class="text-orange">Privacy Policy</p>
+        <p class="text-orange">Terms & Conditions</p>
+        <p class="text-white">Copyright 2020. All rights reserved</p>
       </div>
       <div class="social">
-        Connect with us:
+        <p class="text-white"> Connect with us: </p>
         <i class="fab fa-facebook-square"></i>
         <i class="fab fa-github-square"></i>
         <i class="fab fa-linkedin"></i>
