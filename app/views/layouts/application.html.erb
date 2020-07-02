@@ -14,6 +14,10 @@
     <p id="notice"><%= notice %></p>
     <p id="alert"><%= alert %></p>
     <nav class="nav-bar">
+      <div class="nav-brand">
+        <img src="https://dronelife.com/wp-content/uploads/2017/03/5660001432229852186.png" alt="hackaday">
+        <p>Hackaday</p>
+      </div>
       <ul class="nav-links">
         <li>
           <%= link_to  "Home", articles_path %>
@@ -51,8 +55,8 @@
     </nav>
     <main>
 
+      <%= yield %>
     </main>
-    <%= yield %>
     <footer class="footer">
       <div class="logo">
         <img src="https://dronelife.com/wp-content/uploads/2017/03/5660001432229852186.png" alt="hackaday">

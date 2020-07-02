@@ -1,3 +1,9 @@
+:root {
+  --orange: #f86309;
+  --grey: #4e443e;
+  --grey-light: #847f7b;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -6,7 +12,21 @@ body {
 .nav-bar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
+
+.nav-bar .nav-brand{
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+}
+
+.nav-bar .nav-brand img{
+  display: flex;
+  list-style-type: none;
+  height: 100px;
+}
+
 
 .nav-bar .nav-links{
   display: flex;
@@ -27,7 +47,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
 }
 
 .footer .logo {
