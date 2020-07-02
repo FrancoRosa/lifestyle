@@ -7,7 +7,7 @@
   --yelow: #fefe00;
 }
 
-body {
+html, body {
   font-family: 'Kanit', sans-serif;
   margin: 0;
   padding: 0;
@@ -27,18 +27,25 @@ body {
 
 .nav-bar .nav-brand i{
   display: block;
-  border-radius: 10px;
+  border-radius: 50%;
+  background: var(--orange)
 }
 
 .nav-bar .nav-brand p{
   font-size: 30px;
+  font-weight: 700;
   color: var(--grey);
+  padding: 0 20px;
 }
 
 
 .nav-bar .nav-links{
   display: flex;
   list-style-type: none;
+}
+
+.nav-bar .nav-links li {
+  padding: 0 10px;
 }
 
 .nav-bar li {
@@ -48,6 +55,7 @@ body {
 .nav-bar .nav-sign{
   display: flex;
   list-style-type: none;
+  color: var(--grey-light);
 }
 
 .footer {
@@ -98,4 +106,8 @@ body {
 
 a {
   text-decoration: none;
+}
+ 
+a:active {
+  color: var(--orange)
 }

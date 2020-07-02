@@ -16,43 +16,32 @@
     <p id="alert"><%= alert %></p>
     <nav class="nav-bar">
       <div class="nav-brand">
-        <p>HaCKaDAy</p>
-        <i class="fas fa-skull-crossbones text-orange"></i>
+        <p>HACKADAY</p>
+        <i class="fas fa-skull-crossbones text-white"></i>
       </div>
       <ul class="nav-links">
-        <li>
-          <%= link_to  "Home", articles_path %>
-        </li>
-        <% @nav_categories.each do |category| %>
-          <li>
-            <%= link_to category.name, category %>
-          </li>
+      <% current_uri = request.env['PATH_INFO'] %>
+      <% if current_uri.include?("article")%>
+        <li><%= link_to  "Home", articles_path, class: "text-orange" %></li>
+      <% else %>
+        <li><%= link_to  "Home", articles_path, class: "text-grey-light" %></li>
+      <% end %>  
+      <% @nav_categories.each do |category| %>
+        <% if current_uri.include?("categories/#{category.id}")%>
+          <li><%= link_to category.name, category, class: "text-orange" %></li>
+        <% else %>
+          <li><%= link_to category.name, category, class: "text-grey-light" %></li>
         <% end %>
-        <li>
-          <%= link_to  "Users", users_path %>
-        </li>
-        <li>
-          <%= link_to  "Votes", votes_path %>
-        </li>
+      <% end %>
       </ul>
       <ul class="nav-sign">
       <% if session[:current_user].nil? %>
-        <li>
-          <%= link_to  "Sign Up", new_user_path %>
-        </li>
-        <li>
-          <%= link_to  "Sign In", sign_in_path %>
-        </li>
-        <li>
-          <i class="fas fa-search text-grey-light"></i>
-        </li>
+        <li><%= link_to "LOGIN", sign_in_path, class: "text-grey-light current" %></li>
+        <li> | <%= link_to "REGISTER", new_user_path, class: "text-grey-light current" %></li>
+        <li><i class="fas fa-search text-grey-light"></i></li>
       <% else %>
-        <li>
-          Welcome <%= session[:current_user_name] %>
-        </li>
-        <li>
-          <%= link_to  "Sign out", sign_out_path %>
-        </li>
+        <li>Welcome <%= session[:current_user_name] %></li>
+        <li><%= link_to  "Sign out", sign_out_path %></li>
       <% end %>
         
       </ul>
