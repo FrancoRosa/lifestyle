@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css' %>
   </head>
 
   <body>
@@ -52,5 +53,22 @@
 
     </main>
     <%= yield %>
+    <footer class="footer">
+      <div class="logo">
+        <img src="https://dronelife.com/wp-content/uploads/2017/03/5660001432229852186.png" alt="hackaday">
+        <p>hackaday</p>
+      </div>
+      <div class="policy">
+        <p>Privacy Policy</p>
+        <p>Terms & Conditions</p>
+        <p>Copyright 2020. All rights reserved</p>
+      </div>
+      <div class="social">
+        Connect with us:
+        <i class="fab fa-facebook-square"></i>
+        <i class="fab fa-github-square"></i>
+        <i class="fab fa-linkedin"></i>
+      </div>
+    </footer>
   </body>
 </html>
