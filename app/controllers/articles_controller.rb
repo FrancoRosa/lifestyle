@@ -6,6 +6,8 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
     @categories = Category.all.order(:priority)
+    @featured_id = Article.rank.map { |key, val| [val, key] }
+    @featured = Article.find(@featured_id.max[1]) unless @featured_id.empty?
   end
 
   # GET /articles/1

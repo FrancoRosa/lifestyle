@@ -1,7 +1,27 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Articles</h1>
+<h2> > Featured  </h2>
+<% unless @featured_id.empty? %>
+  <div>
+    <ul>
+      <li><strong><%= @featured.title %></strong>, by <%= @featured.author.name %> <%= time_ago_in_words(@featured.created_at) %> </li>
+      <li><%= @featured.text %></li>
+      <% if @featured.image.attached? %>
+      <div>
+        <%= image_tag @featured.image.variant(resize_to_limit: [300, 300]) %>    
+      <div>
+      <% end %>
+      <span><%= link_to 'Show', @featured %></span>
+      <% if @featured.author_id == session[:current_user] %>
+        <span><%= link_to 'Edit', edit_article_path(@featured) %></span>
+        <span><%= link_to 'Destroy', @featured, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <% @categories.each do |category| %>
+
   <h2> > <%= category.name %>  </h2>
   <% if category.articles.count.positive? %>
   <% article = category.articles.latest %>

@@ -9,4 +9,5 @@ class Article < ApplicationRecord
 
   has_one_attached :image
   scope :latest, -> { all.order(created_at: :desc).first }
+  scope :rank, -> { joins(:votes).group("article_id").count }
 end
