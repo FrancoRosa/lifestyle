@@ -20,6 +20,19 @@
     <%= image_tag @article.image.variant(resize_to_limit: [300, 300]) %>
   </p>
 <% end %>
+<% unless session[:current_user].nil? %>
+  
+  <% vote = @article.votes.find_by(user_id: session[:current_user]) %>
+  <% if vote.nil? %>
+    <%= link_to 'Vote', votes_path(article_id: @article.id), method: :post %> |
+  <% else %>
+    <% if vote.article_id == @article.id %>
+      <%= link_to 'Unvote', vote_path(vote.id), method: :delete %> |
+    <% else %>
+      <%= link_to 'Vote', votes_path(article_id: @article.id), method: :post %> |
+    <% end %>
+  <% end %>
+<% end %>
 <% if @article.author_id == session[:current_user] %>
   <%= link_to 'Edit', edit_article_path(@article) %> |
   <%= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' } %> |
