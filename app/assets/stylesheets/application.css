@@ -1,16 +1,18 @@
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
 .nav-bar .nav-links{
+  display: flex;
   list-style-type: none;
 }
 
-.nav-links {
-  display: inline-block;
+.nav-bar li {
+  margin: 0 5px;
 }
 
 .nav-bar .nav-sign{
-  display: inline;
+  display: flex;
   list-style-type: none;
-}
-
-.nav-sign {
-  display: inline;
 }

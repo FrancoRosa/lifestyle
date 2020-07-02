@@ -15,11 +15,13 @@
     <nav class="nav-bar">
       <ul class="nav-links">
         <li>
-          <%= link_to  "Articles", articles_path %>
+          <%= link_to  "Home", articles_path %>
         </li>
-        <li>
-          <%= link_to  "Categories", categories_path %>
-        </li>
+        <% @nav_categories.each do |category| %>
+          <li>
+            <%= link_to category.name, category %>
+          </li>
+        <% end %>
         <li>
           <%= link_to  "Users", users_path %>
         </li>
