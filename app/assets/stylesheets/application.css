@@ -308,12 +308,22 @@ input[type="file"]  {
 .article-text {
   min-width: 25%;
   max-width: 25%;
-  height: 41vh;
+  height: 26vh;
   background-color: white;
+  position: relative;
+  padding: 1rem 0;
 }
 
 .article-text p{
-  padding: 0 10px;
+  padding: 0 20px;
+}
+
+.article-text .cat-name{
+  color: var(--orange);
+  border-bottom: 2px solid var(--orange);
+  padding-bottom: 5px;
+  max-width: 15%;
+  margin: 20px 10px;
 }
 
 .article-image {
@@ -328,4 +338,8 @@ input[type="file"]  {
 }
 .article-image img {
   height: 100%;
+}
+.article-links {
+  position: absolute;
+  bottom: -3rem;
 }

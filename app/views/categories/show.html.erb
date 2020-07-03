@@ -2,36 +2,72 @@
 <div class="article-container">
 
   <% @articles.each_with_index do |article,i| %>
-    <div class="article-image">
-      <%= image_tag article.image %> 
-    </div>
-    <div class="article-text">
-        <div>
-          <p class="text-orange"><%= @category.name %></p>
-          <hr class="is-orange">
-        </div>
-        <p><%= article.title %></p>
-        <p>by <%= article.author.name %> <%= time_ago_in_words(article.created_at) %> </p>
-        <p><%= article.text %></p>
-        
-        <span><%= link_to 'Show', article %></span>
-        <% unless session[:current_user].nil? %>
-        <% vote = article.votes.find_by(user_id: session[:current_user]) %>
-        <% if vote.nil? %>
-          <%= link_to 'Vote', votes_path(article_id: article.id), method: :post %> |
-        <% else %>
-          <% if vote.article_id == article.id %>
-            <%= link_to 'Unvote', vote_path(vote.id), method: :delete %> |
-          <% else %>
-            <%= link_to 'Vote', votes_path(article_id: article.id), method: :post %> |
-          <% end %>
-        <% end %>
-      <% end %>
-        <% if article.author_id == session[:current_user] %>
-          <span><%= link_to 'Edit', edit_article_path(article) %></span>
-          <span><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></span>
-        <% end %>
-    </div>
+    <% if ((i/2)%2).zero? %>
+      <div class="article-image">
+        <%= image_tag article.image %> 
+      </div>
 
+      <div class="article-text">
+          <div>
+            <span class="cat-name"><%= @category.name %></span>
+          </div>
+          <p><%= article.title %></p>
+          <p class="text-grey-light">by <%= article.author.name %> <%= time_ago_in_words(article.created_at) %> </p>
+          <p><%= article.text %></p>
+          
+          <p class="article-links">
+          <span><%= link_to 'Show', article, class: "text-grey" %></span>
+          <% unless session[:current_user].nil? %>
+            <% vote = article.votes.find_by(user_id: session[:current_user]) %>
+            <% if vote.nil? %>
+              <%= link_to '<i class="far fa-thumbs-up"></i>'.html_safe, votes_path(article_id: article.id), method: :post, class:"text-grey" %> |
+            <% else %>
+              <% if vote.article_id == article.id %>
+                <%= link_to '<i class="far fa-thumbs-down"></i>'.html_safe, vote_path(vote.id), method: :delete, class:"text-orange" %> |
+              <% else %>
+                <%= link_to '<i class="far fa-thumbs-up"></i>'.html_safe, votes_path(article_id: article.id), method: :post, class:"text-grey" %> |
+              <% end %>
+            <% end %>
+          <% end %>
+          <% if article.author_id == session[:current_user] %>
+            <span><%= link_to 'Edit', edit_article_path(article), class:"text-grey" %></span>
+            <span><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-orange" %></span>
+          <% end %>
+          </p>
+      </div>
+    <% else %>
+      <div class="article-text">
+          <div>
+            <span class="cat-name"><%= @category.name %></span>
+          </div>
+          <p><%= article.title %></p>
+          <p class="text-grey-light">by <%= article.author.name %> <%= time_ago_in_words(article.created_at) %> </p>
+          <p><%= article.text %></p>
+          
+          <p class="article-links">
+          <span><%= link_to 'Show', article, class: "text-grey" %></span>
+          <% unless session[:current_user].nil? %>
+            <% vote = article.votes.find_by(user_id: session[:current_user]) %>
+            <% if vote.nil? %>
+              <%= link_to '<i class="far fa-thumbs-up"></i>'.html_safe, votes_path(article_id: article.id), method: :post, class:"text-grey" %> |
+            <% else %>
+              <% if vote.article_id == article.id %>
+                <%= link_to '<i class="far fa-thumbs-down"></i>'.html_safe, vote_path(vote.id), method: :delete, class:"text-orange" %> |
+              <% else %>
+                <%= link_to '<i class="far fa-thumbs-up"></i>'.html_safe, votes_path(article_id: article.id), method: :post, class:"text-grey" %> |
+              <% end %>
+            <% end %>
+          <% end %>
+          <% if article.author_id == session[:current_user] %>
+            <span><%= link_to 'Edit', edit_article_path(article), class:"text-grey" %></span>
+            <span><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-orange" %></span>
+          <% end %>
+          </p>
+      </div>
+
+      <div class="article-image">
+        <%= image_tag article.image %> 
+      </div>
+    <% end %>
   <% end %>
 </div>
