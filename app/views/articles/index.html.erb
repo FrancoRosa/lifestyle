@@ -1,30 +1,27 @@
 <p id="notice"><%= notice %></p>
-<div class="first-container">
+<section class="first-container">
   <% unless @featured_id.empty? %>
-    <div>
-      <ul>
-        <li><strong><%= @featured.title %></strong>, by <%= @featured.author.name %> <%= time_ago_in_words(@featured.created_at) %> </li>
-        <li><%= @featured.text %></li>
-        <% if @featured.image.attached? %>
-        <div>
-          <%= image_tag @featured.image.variant(resize_to_limit: [300, 300]) %>    
-        <div>
-        <% end %>
-        <span><%= link_to 'Show', @featured %></span>
-        <% if @featured.author_id == session[:current_user] %>
-          <span><%= link_to 'Edit', edit_article_path(@featured) %></span>
-          <span><%= link_to 'Destroy', @featured, method: :delete, data: { confirm: 'Are you sure?' } %></span>
-        <% end %>
-      </ul>
-    </div>
+    <article class="featured-container gradient-left">
+      <%= image_tag @featured.image, class: "to-back" %>    
+      <%= link_to @featured do %>
+        <div class="featured-text">
+          <span class="text-orange text-medium"><%= @featured.title %></span><br> 
+          <span class="text-grey-light">by</span>
+          <span class="text-orange"><%= @featured.author.name %></span>
+          <span class="text-grey-light"><%= time_ago_in_words(@featured.created_at) %> ago</span>
+          <p class="text-white"><%= @featured.text %></p>
+        </div>
+      <% end %>
+
+    </article>
   <% else %>
     <article class="featured-container gradient-left">
       <img class="to-back" src="https://previews.123rf.com/images/kaymosk/kaymosk1804/kaymosk180400006/100130939-error-404-page-not-found-error-with-glitch-effect-on-screen-vector-illustration-for-your-design-.jpg" alt="not-found"/>
       <div class="featured-text">
-        <span class="text-orange text-medium">There is no a featured article, yet.</span> 
+        <span class="text-orange text-medium">There is no a featured article, yet.</span><br>
         <span class="text-grey-light">by</span>
         <span class="text-orange">Me</span>
-        <span class="text-grey-light">1 year ago</span>
+        <span class="text-grey-light"><%= time_ago_in_words(Time.now) %> ago</span>
         <p class="text-white">In order to show something here please vote for the article you enjoyed the most</p>
       </div>
     </article>
@@ -36,30 +33,42 @@
       <span class="text-orange">code.</span>
     </div>
   </article>
-</div>
-<% @categories.each do |category| %>
-
-  <h2> <%= link_to category.name, category %>  </h2>
-  <% if category.articles.count.positive? %>
-  <% article = category.articles.latest %>
-    <div>
-      <ul>
-        <li><strong><%= article.title %></strong>, by <%= article.author.name %> <%= time_ago_in_words(article.created_at) %> </li>
-        <li><%= article.text %></li>
-        <% if article.image.attached? %>
-        <div>
-          <%= image_tag article.image.variant(resize_to_limit: [300, 300]) %>    
-        <div>
-        <% end %>
-        <span><%= link_to 'Show', article %></span>
-        <% if article.author_id == session[:current_user] %>
-          <span><%= link_to 'Edit', edit_article_path(article) %></span>
-          <span><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></span>
-        <% end %>
-      </ul>
-    </div>
+</section>
+<section>
+  <% @categories.each do |category| %>
+    <h2> <%= link_to category.name, category %>  </h2>
+    <% if category.articles.count.positive? %>
+      <% article = category.articles.latest %>
+      <div>
+        <ul>
+          <li><strong><%= article.title %></strong>, by <%= article.author.name %> <%= time_ago_in_words(article.created_at) %> </li>
+          <li><%= article.text %></li>
+          <% if article.image.attached? %>
+          <div>
+            <%= image_tag article.image.variant(resize_to_limit: [300, 300]), class: "to-back" %>    
+          <div>
+          <% end %>
+          <span><%= link_to 'Show', article %></span>
+          <% if article.author_id == session[:current_user] %>
+            <span><%= link_to 'Edit', edit_article_path(article) %></span>
+            <span><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+          <% end %>
+        </ul>
+      </div>
+    <% else %>
+      <article class="featured-container gradient-left">
+        <img class="to-back" src="https://previews.123rf.com/images/kaymosk/kaymosk1804/kaymosk180400006/100130939-error-404-page-not-found-error-with-glitch-effect-on-screen-vector-illustration-for-your-design-.jpg" alt="not-found"/>
+        <div class="featured-text">
+          <span class="text-orange text-medium">There is no a featured article, yet.</span><br> 
+          <span class="text-grey-light">by</span>
+          <span class="text-orange">Me</span>
+          <span class="text-grey-light"><%= time_ago_in_words(Time.now) %> ago</span>
+          <p class="text-white">In order to show something here please vote for the article you enjoyed the most</p>
+        </div>
+      </article>
+    <% end %>
   <% end %>
-<% end %>
+</section>
 
 <br>
 

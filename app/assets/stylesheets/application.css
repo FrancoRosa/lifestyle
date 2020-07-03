@@ -25,12 +25,6 @@ html, body {
   align-items: center;
 }
 
-.nav-bar .nav-brand i{
-  display: block;
-  border-radius: 50%;
-  background: var(--orange)
-}
-
 .nav-bar .nav-brand p{
   font-size: 30px;
   font-weight: 700;
@@ -75,7 +69,9 @@ html, body {
   color: white;
 }
 
-
+.featured-container img {
+  width: 1200px;
+}
 
 .featured-text {
   position: absolute;

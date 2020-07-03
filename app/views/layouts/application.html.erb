@@ -17,7 +17,6 @@
     <nav class="nav-bar">
       <div class="nav-brand">
         <p>HACKADAY</p>
-        <i class="fas fa-skull-crossbones text-white"></i>
       </div>
       <ul class="nav-links">
       <% current_uri = request.env['PATH_INFO'] %>
@@ -49,8 +48,9 @@
         <% end %>
         <li><i class="fas fa-search text-grey-light"></i></li>
       <% else %>
-        <li>Welcome <%= session[:current_user_name] %></li>
-        <li><%= link_to  "LOGOUT", sign_out_path %></li>
+        <li class="text-orange">WELCOME <%= session[:current_user_name].upcase %></li>
+        <li class="text-grey-light">|</li>
+        <li><%= link_to  "LOGOUT", sign_out_path, class: "text-grey-light" %></li>
       <% end %>
         
       </ul>
