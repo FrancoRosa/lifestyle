@@ -49,6 +49,7 @@
         <li><i class="fas fa-search text-grey-light"></i></li>
       <% else %>
         <li class="text-orange">WELCOME <%= session[:current_user_name].upcase %></li>
+        <li> <%= link_to '<i class="fas fa-pen text-grey"></i>'.html_safe, new_article_path %> </li>
         <li class="text-grey-light">|</li>
         <li><%= link_to  "LOGOUT", sign_out_path, class: "text-grey-light" %></li>
       <% end %>

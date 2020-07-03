@@ -102,6 +102,40 @@ html, body {
   right: 16px;
 }
 
+.second-container {
+  display: flex;
+}
+
+.category-container {
+  height: 400px;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  position: relative;
+  color: white;;
+}
+
+.category-title {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+.category-title a{
+  font-weight: 400;
+  font-size: 25px;
+}
+
+.category-title hr{
+  height: 3px;
+  border-width: 0;
+  background-color: var(--yelow);
+  margin-top: -5px;
+}
+
 .footer {
   background-color: var(--brown);
   display: flex;
@@ -147,6 +181,10 @@ html, body {
   color: var(--grey-light);
 }
 
+.text-grey {
+  color: var(--grey);
+}
+
 
 a {
   text-decoration: none;
@@ -161,7 +199,12 @@ a:active {
 }
 
 .gradient-left {
-  background: linear-gradient(190deg, rgba(255,255,255,0.1) 14%, rgba(0,0,0,0.85) 70%)
+  background: linear-gradient(190deg, rgba(255,255,255,0.1) 14%, rgba(0,0,0,0.85) 70%);
+}
+
+.gradient {
+  background: linear-gradient(-10deg, rgba(255,255,255,0.1) 60%, rgba(0,0,0,0.85) 81%),
+              linear-gradient(190deg, rgba(255,255,255,0.1) 14%, rgba(0,0,0,0.85) 70%);
 }
 
 .to-back{
