@@ -12,22 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label "Title:" %>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :text %>
-    <%= form.text_field :text %>
+    <%= form.label "Text:" %>
+    <%= form.text_area :text %>
   </div>
 
   <div class="field">
-    <%= form.label :image %>
+    <%= form.label "Image:" %>
     <%= form.file_field :image %>
   </div>
 
   <div class="field">
-    <%= form.label :category %>
+    <%= form.label "Category:" %>
      <% if @article.categories.empty? %>
        <%= collection_select(:category, :id, @categories, :id, :name, { selected: @categories.first.id } ) %>
      <% else %>
@@ -36,7 +36,7 @@
   </div>
 
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions move-right">
+    <%= form.submit "Create", class: "button"%>
   </div>
 <% end %>

@@ -38,22 +38,7 @@
   <% @categories.each do |category| %>
     <% if category.articles.count.positive? %>
       <% article = category.articles.latest %>
-      <div>
-        <ul>
-          <li><strong><%= article.title %></strong>, by <%= article.author.name %> <%= time_ago_in_words(article.created_at) %> </li>
-          <li><%= article.text %></li>
-          <% if article.image.attached? %>
-          <div>
-            <%= image_tag article.image.variant(resize_to_limit: [300, 300]), class: "to-back" %>    
-          <div>
-          <% end %>
-          <span><%= link_to 'Show', article %></span>
-          <% if article.author_id == session[:current_user] %>
-            <span><%= link_to 'Edit', edit_article_path(article) %></span>
-            <span><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></span>
-          <% end %>
-        </ul>
-      </div>
+      
       <article class="category-container gradient">
         <%= image_tag article.image, class: "to-back" %>    
         <div class="category-title">

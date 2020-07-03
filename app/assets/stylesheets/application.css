@@ -13,6 +13,10 @@ html, body {
   padding: 0;
 }
 
+html {
+  height: 100vh;
+}
+
 .nav-bar {
   display: flex;
   justify-content: space-between;
@@ -55,10 +59,10 @@ html, body {
 
 .first-container{
   display: flex;
+  height: 41vh;
 }
 
 .featured-container {
-  height: 400px;
   width: 70%;
   display: flex;
   justify-content: center;
@@ -80,7 +84,6 @@ html, body {
 }
 
 .miscellaneous-container {
-  height: 400px;
   width: 30%;
   display: flex;
   justify-content: center;
@@ -104,10 +107,11 @@ html, body {
 
 .second-container {
   display: flex;
+  height: 41vh;
 }
 
 .category-container {
-  height: 400px;
+  height: 41vh;
   width: 70%;
   display: flex;
   justify-content: center;
@@ -129,7 +133,7 @@ html, body {
   font-size: 25px;
 }
 
-.category-title hr{
+hr{
   height: 3px;
   border-width: 0;
   background-color: var(--yelow);
@@ -156,6 +160,10 @@ html, body {
 .footer .policy {
   display: flex;
   align-items: center;
+}
+
+.footer .policy p{
+  margin: 0 10px;
 }
 
 .footer .social {
@@ -185,6 +193,9 @@ html, body {
   color: var(--grey);
 }
 
+.is-orange {
+  background-color: var(--orange);
+}
 
 a {
   text-decoration: none;
@@ -213,4 +224,108 @@ a:active {
 
 .text-medium{
   font-size: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  background-color: var(--grey-light);
+}
+
+.new-form{
+  width: 50%;
+  height: 82vh;
+}
+
+.actions {
+  display: flex;
+  justify-items: right;
+}
+
+.button {
+  font-family: 'Kanit', sans-serif !important;
+  font-size: 20px;
+  border-color: white;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.field {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  font-family: 'Kanit', sans-serif !important;
+
+}
+
+.field label {
+  font-size: 20px;
+  color: white;
+
+}
+
+.field input {
+  width: 70%;
+  font-size: 20px;
+  border-color: white;
+  font-family: 'Kanit', sans-serif;
+  border-radius: 5px;
+}
+
+.field textarea {
+  width: 70%;
+  font-size: 20px;
+  border-color: white;
+  border-radius: 5px;
+  font-family: 'Kanit', sans-serif;
+}
+
+input[type="file"]  {
+  color: white;
+  font-family: 'Kanit', sans-serif;
+
+}
+
+.field select {
+  width: 70%;
+  font-size: 20px;
+  border-color: white;
+  border-radius: 5px;
+  font-family: 'Kanit', sans-serif;
+}
+
+.move-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.article-container {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.article-text {
+  min-width: 25%;
+  max-width: 25%;
+  height: 41vh;
+  background-color: white;
+}
+
+.article-text p{
+  padding: 0 10px;
+}
+
+.article-image {
+  min-width: 25%;
+  max-width: 25%;
+  height: 41vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+.article-image img {
+  height: 100%;
 }

@@ -21,7 +21,6 @@
   </p>
 <% end %>
 <% unless session[:current_user].nil? %>
-  
   <% vote = @article.votes.find_by(user_id: session[:current_user]) %>
   <% if vote.nil? %>
     <%= link_to 'Vote', votes_path(article_id: @article.id), method: :post %> |
