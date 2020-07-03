@@ -36,6 +36,7 @@ html, body {
   font-weight: 700;
   color: var(--grey);
   padding: 0 20px;
+  margin: 0;
 }
 
 
@@ -56,6 +57,53 @@ html, body {
   display: flex;
   list-style-type: none;
   color: var(--grey-light);
+}
+
+.first-container{
+  display: flex;
+}
+
+.featured-container {
+  height: 400px;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  position: relative;
+  color: white;
+}
+
+
+
+.featured-text {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+.miscellaneous-container {
+  height: 400px;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.miscellaneous-container img{
+  height: 600px;
+}
+
+.miscellaneous-text {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
 }
 
 .footer {
@@ -110,4 +158,20 @@ a {
  
 a:active {
   color: var(--orange)
+}
+
+.gradient-right {
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.75) 75%);
+}
+
+.gradient-left {
+  background: linear-gradient(190deg, rgba(255,255,255,0.1) 14%, rgba(0,0,0,0.85) 70%)
+}
+
+.to-back{
+  z-index: -1;
+}
+
+.text-medium{
+  font-size: 20px;
 }
