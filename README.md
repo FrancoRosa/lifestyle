@@ -20,8 +20,8 @@ it is hosted on a Heroku Free account so be patience, sometimes it takes a while
 ## Presentation Video
 
 <p align="center">
-  <a href="https://www.youtube.com/watch?v=qJFWLQNonno&feature=youtu.be">
-    <img width="460" height="300" src="https://i.ytimg.com/vi/qJFWLQNonno/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCMBswrUp4MCzIqvDIMmsz0TlMK-Q">
+  <a href="https://www.youtube.com/watch?v=5PZwkeP7FiY">
+    <img width="460" height="300" src="./app/assets/images/screenshot.png">
   </a>
 </p>
 
