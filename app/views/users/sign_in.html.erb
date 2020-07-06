@@ -1,0 +1,17 @@
+<section class="container">
+  <div class="new-form">
+    <div>
+      <h1 class="text-white">LOGIN</h1>
+      <hr>
+    </div><%= form_with(model: @user, local: true, url: sign_in_path) do |form| %>
+      <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+      </div>
+
+      <div class="actions move-right">
+        <%= form.submit "Sign in", class:"button" %>
+      </div>
+    <% end %>
+  </div>
+</section>
