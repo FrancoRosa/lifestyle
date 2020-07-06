@@ -4,8 +4,6 @@
 
 [Hackaday](hackaday.com) is my daily reading so I enjoy to create a version of its web page using this [design](https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version).
 
-> A code that follows a style is easier to read.
-
 I liked to build this project while reading hackaday posts, for this project I used Ruby on Rails as the backend and plain and HTML CSS on the frontend.
 
 Postgres is the production database while all images are stored on [GoogleCould](https://cloud.google.com)
