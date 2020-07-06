@@ -10,7 +10,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @articles = Category.find(params[:id]).articles
+    @articles = Category.find(params[:id]).articles.order(created_at: :desc)
   end
 
   # GET /categories/new
