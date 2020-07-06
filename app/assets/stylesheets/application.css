@@ -70,6 +70,18 @@
   color: white;
 }
 
+.featured-text-container {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-overflow: ellipsis;
+  overflow: scroll;
+
+  position: relative;
+  color: white;
+}
+
 .featured-container img {
   width: 1200px;
 }
@@ -313,6 +325,12 @@ input[type="file"]  {
 
 .article-text p{
   padding: 0 20px;
+}
+
+.truncated {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-height: 3rem;
 }
 
 .article-text .cat-name{

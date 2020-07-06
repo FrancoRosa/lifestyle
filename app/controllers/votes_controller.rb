@@ -28,7 +28,7 @@ class VotesController < ApplicationController
       @vote = Vote.new(vote_params)
       @vote.user_id = current_user
       if @vote.save
-        redirect_to article_path(@vote.article_id), notice: 'Vote was successfully destroyed.'
+        redirect_to article_path(@vote.article_id), notice: 'Vote was successfully created.'
       else
         render :new
       end

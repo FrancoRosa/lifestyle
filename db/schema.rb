@@ -1,3 +1,5 @@
+# rubocop:disable all
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -80,3 +82,4 @@ ActiveRecord::Schema.define(version: 2020_06_30_073459) do
   add_foreign_key "votes", "articles"
   add_foreign_key "votes", "users"
 end
+# rubocop:enable all

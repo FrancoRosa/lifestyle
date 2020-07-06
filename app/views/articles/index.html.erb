@@ -8,7 +8,7 @@
           <span class="text-grey-light">by</span>
           <span class="text-orange"><%= @featured.author.name %></span>
           <span class="text-grey-light"><%= time_ago_in_words(@featured.created_at) %> ago</span>
-          <p class="text-white"><%= @featured.text %></p>
+          <p class="text-white truncated"><%= @featured.text %></p>
         </div>
       <% end %>
 
