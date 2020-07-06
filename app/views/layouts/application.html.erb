@@ -12,8 +12,20 @@
   </head>
 
   <body>
-    <p id="notice"><%= notice %></p>
-    <p id="alert"><%= alert %></p>
+    <% if notice %>
+      <div class="b-green">
+        <button class="delete"></button>
+        <p id="notice"><%= notice %></p>
+      </div>
+    <% end %>
+
+    <% if alert %>
+      <div class="b-red">
+        <button class="delete"></button>
+        <p id="alert"><%= alert %></p>
+      </div>
+    <% end %>
+    
     <nav class="nav-bar">
       <div class="nav-brand">
         <p>HACKADAY</p>

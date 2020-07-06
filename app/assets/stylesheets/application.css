@@ -7,20 +7,17 @@
   --yelow: #fefe00;
 }
 
-html, body {
+* {
   font-family: 'Kanit', sans-serif;
   margin: 0;
   padding: 0;
-}
-
-html {
-  height: 100vh;
 }
 
 .nav-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 9vh;
 }
 
 .nav-bar .nav-brand{
@@ -145,6 +142,7 @@ hr{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 9vh;
 }
 
 .footer .logo {
@@ -222,6 +220,11 @@ a:active {
   z-index: -1;
 }
 
+.to-middle {
+  z-index: 0;
+}
+
+
 .text-medium{
   font-size: 20px;
 }
@@ -243,7 +246,6 @@ a:active {
 }
 
 .button {
-  font-family: 'Kanit', sans-serif !important;
   font-size: 20px;
   border-color: white;
   border-radius: 5px;
@@ -254,7 +256,6 @@ a:active {
   display: flex;
   justify-content: space-between;
   margin: 10px;
-  font-family: 'Kanit', sans-serif !important;
 
 }
 
@@ -268,7 +269,6 @@ a:active {
   width: 70%;
   font-size: 20px;
   border-color: white;
-  font-family: 'Kanit', sans-serif;
   border-radius: 5px;
 }
 
@@ -277,12 +277,10 @@ a:active {
   font-size: 20px;
   border-color: white;
   border-radius: 5px;
-  font-family: 'Kanit', sans-serif;
 }
 
 input[type="file"]  {
   color: white;
-  font-family: 'Kanit', sans-serif;
 
 }
 
@@ -291,7 +289,6 @@ input[type="file"]  {
   font-size: 20px;
   border-color: white;
   border-radius: 5px;
-  font-family: 'Kanit', sans-serif;
 }
 
 .move-right {
@@ -336,10 +333,44 @@ input[type="file"]  {
   overflow: hidden;
   position: relative;
 }
+
 .article-image img {
   height: 100%;
 }
+
 .article-links {
   position: absolute;
   bottom: -3rem;
+}
+
+.items tr {
+  color: white;
+}
+
+.items th, td {
+  padding: 5px 40px 0 0;
+}
+
+.p-2 {
+  padding: 20px;
+}
+
+.ml-2 {
+  margin-left: 5rem;
+}
+
+.mt-2 {
+  margin-top: 5rem;
+}
+
+.p-1 {
+  padding: 10px;
+}
+
+.b-green{
+  background-color: greenyellow;
+}
+
+.b-red{
+  background-color: rgba(255, 94, 0, 0.384);
 }

@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.all
-    @categories = Category.all.order(:priority)
+    @categories = Category.all.order(priority: :asc).limit(4)
     @featured_id = Article.rank.map { |key, val| [val, key] }
     @featured = Article.find(@featured_id.max[1]) unless @featured_id.empty?
   end
@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   def new
     @article = Article.new
-    @categories = Category.all.order(:priority)
+    @categories = Category.all.order(priority: :asc)
   end
 
   # GET /articles/1/edit
