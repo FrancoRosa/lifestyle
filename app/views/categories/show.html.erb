@@ -45,7 +45,7 @@
           <p class="text-grey-light">by <%= article.author.name %> <%= time_ago_in_words(article.created_at) %> </p>
           <div class="truncated">
             <p><%= article.text %></p>
-          <div>
+          </div>
           <p class="article-links">
           <span><%= link_to 'Show', article, class: "text-grey" %></span>
           <% unless session[:current_user].nil? %>
