@@ -1,6 +1,18 @@
-<h1>Editing Category</h1>
 
-<%= render 'form', category: @category %>
-
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>
+<section class="container">
+  <div class="new-form">
+    <div>
+      <h1 class="text-white">EDITING CATEGORY</h1>
+      <hr>
+    </div>
+    <%= render 'form', category: @category %>
+    <div class="move-right">  
+      <%= link_to @category do %>
+        <button class="button">Show</button>
+      <% end %> 
+      <%= link_to categories_path do %>
+        <button class="button">Back</button>
+      <% end %> 
+    </div>  
+  </div>
+</section>
