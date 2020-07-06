@@ -1,3 +1,4 @@
+# rubocop:disable Style/SymbolArray
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
@@ -12,8 +13,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1
   # GET /articles/1.json
-  def show
-  end
+  def show; end
 
   # GET /articles/new
   def new
@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
-    @article.author_id = session[:current_user] 
+    @article.author_id = session[:current_user]
     if @article.save
       ArticlesCategory.new(article: @article, category_id: category_params[:id]).save
       redirect_to @article, notice: 'Article was successfully created.'
@@ -62,16 +62,19 @@ class ArticlesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_article
-      @article = Article.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def article_params
-      params.require(:article).permit(:title, :text, :image)
-    end
-    def category_params
-      params.require(:category).permit(:id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_article
+    @article = Article.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def article_params
+    params.require(:article).permit(:title, :text, :image)
+  end
+
+  def category_params
+    params.require(:category).permit(:id)
+  end
 end
+# rubocop:enable Style/SymbolArray

@@ -1,3 +1,4 @@
+# rubocop:disable Style/SymbolArray
 class VotesController < ApplicationController
   before_action :set_vote, only: [:show, :edit, :update, :destroy]
   # GET /votes
@@ -8,8 +9,7 @@ class VotesController < ApplicationController
 
   # GET /votes/1
   # GET /votes/1.json
-  def show
-  end
+  def show; end
 
   # GET /votes/new
   def new
@@ -17,8 +17,7 @@ class VotesController < ApplicationController
   end
 
   # GET /votes/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /votes
   # POST /votes.json
@@ -57,13 +56,15 @@ class VotesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_vote
-      @vote = Vote.find_by(user_id: session[:current_user])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def vote_params
-      params.permit(:article_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_vote
+    @vote = Vote.find_by(user_id: session[:current_user])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def vote_params
+    params.permit(:article_id)
+  end
 end
+# rubocop:enable Style/SymbolArray

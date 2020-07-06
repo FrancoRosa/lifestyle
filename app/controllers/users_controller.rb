@@ -1,3 +1,4 @@
+# rubocop:disable Style/SymbolArray
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
@@ -9,8 +10,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   # GET /users/1.json
-  def show
-  end
+  def show; end
 
   # GET /users/new
   def new
@@ -18,8 +18,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /users
   # POST /users.json
@@ -37,7 +36,7 @@ class UsersController < ApplicationController
   def create_session
     @user = User.find_by(user_params)
     if @user.nil?
-      redirect_to sign_in_path, alert: "User not found, try again"
+      redirect_to sign_in_path, alert: 'User not found, try again'
     else
       session[:current_user] = @user.id
       session[:current_user_name] = @user.name
@@ -53,6 +52,7 @@ class UsersController < ApplicationController
     session[:current_user] = nil
     redirect_to root_path, alert: 'See you soon!'
   end
+
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
@@ -78,13 +78,15 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.require(:user).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def user_params
+    params.require(:user).permit(:name)
+  end
 end
+# rubocop:enable Style/SymbolArray

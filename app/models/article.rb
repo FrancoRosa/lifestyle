@@ -1,5 +1,5 @@
 class Article < ApplicationRecord
-  belongs_to :author, class_name: "User"
+  belongs_to :author, class_name: 'User'
   has_and_belongs_to_many :categories, dependent: :destroy
   has_many :votes, dependent: :destroy
 
@@ -10,5 +10,5 @@ class Article < ApplicationRecord
 
   has_one_attached :image
   scope :latest, -> { all.order(created_at: :desc).first }
-  scope :rank, -> { joins(:votes).group("article_id").count }
+  scope :rank, -> { joins(:votes).group('article_id').count }
 end
