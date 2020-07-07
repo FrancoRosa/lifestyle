@@ -2,8 +2,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
-  # GET /articles
-  # GET /articles.json
   def index
     @articles = Article.all
     @categories = Category.top(4)
@@ -11,23 +9,17 @@ class ArticlesController < ApplicationController
     @featured = Article.find(@featured_id.max[1]) unless @featured_id.empty?
   end
 
-  # GET /articles/1
-  # GET /articles/1.json
   def show; end
 
-  # GET /articles/new
   def new
     @article = Article.new
     @categories = Category.all
   end
 
-  # GET /articles/1/edit
   def edit
     @categories = Category.all
   end
 
-  # POST /articles
-  # POST /articles.json
   def create
     @article = Article.new(article_params)
     @article.author_id = session[:current_user]
@@ -40,8 +32,6 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /articles/1
-  # PATCH/PUT /articles/1.json
   def update
     if @article.update(article_params)
       ArticlesCategory.where(article_id: @article.id).first_or_create(category_id: category_params[:id])
@@ -53,20 +43,15 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
-    respond_to do |format|
-      format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to articles_url, notice: 'Article was successfully destroyed.'
   end
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_article
     @article = Article.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def article_params
     params.require(:article).permit(:title, :text, :image)
   end
