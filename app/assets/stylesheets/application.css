@@ -155,6 +155,9 @@ hr{
   align-items: center;
   justify-content: space-between;
   height: 9vh;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .footer .logo {
@@ -391,4 +394,16 @@ input[type="file"]  {
 
 .b-red{
   background-color: rgba(255, 94, 0, 0.384);
+}
+
+.notification {
+  position: absolute;
+  top: 0;
+  left: 25%;
+  width: 50%;
+  border
+}
+
+.notification p{
+  text-align: center;    
 }

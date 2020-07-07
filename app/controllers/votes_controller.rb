@@ -6,14 +6,6 @@ class VotesController < ApplicationController
     @votes = Vote.all
   end
 
-  def show; end
-
-  def new
-    @vote = Vote.new
-  end
-
-  def edit; end
-
   def create
     current_user = session[:current_user]
     if Vote.where(user_id: current_user).empty?
@@ -32,7 +24,7 @@ class VotesController < ApplicationController
   def update
     @vote = Vote.find_by(user_id: session[:current_user])
     if @vote.update(vote_params)
-      redirect_to @vote, notice: 'Vote was successfully updated.'
+      redirect_to article_path(@vote.article_id), notice: 'Vote was successfully updated.'
     else
       render :edit
     end

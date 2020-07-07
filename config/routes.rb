@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   root to: "articles#index"
   resources :articles
   resources :categories
-  resources :votes
-  resources :users
+  resources :votes, only: [:index, :create, :update, :destroy]
+  resources :users, only: [:index, :new, :create, :destroy] 
   get '/sign_up', to: 'users#new'
   get '/sign_in', to: 'users#sign_in'
   post '/sign_in', to: 'users#create_session'

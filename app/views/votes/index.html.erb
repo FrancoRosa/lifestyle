@@ -18,12 +18,9 @@
         <tr>
           <td><%= vote.user_id %></td>
           <td><%= vote.article_id %></td>
-          <td><%= link_to 'Show', vote, class: "text-grey"  %></td>
-          <td><%= link_to 'Edit', edit_vote_path(vote), class: "text-grey"  %></td>
           <td><%= link_to 'Destroy', vote, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-orange"  %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-  <%= link_to 'New Vote', new_vote_path, class: "text-white move-right"  %>
 </section>
