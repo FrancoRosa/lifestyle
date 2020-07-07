@@ -2,7 +2,7 @@
 
 > This is an article demo page using Hackaday contents a sample.
 
-[Hackaday](hackaday.com) is my daily reading so I enjoy to create a version of its web page using this [design](https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version).
+[Hackaday](https://hackaday.com) is my daily reading so I enjoy to create a version of its web page using this [design](https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version).
 
 I liked to build this project while reading hackaday posts, for this project I used Ruby on Rails as the backend and plain and HTML CSS on the frontend.
 
@@ -12,8 +12,8 @@ To make GCS work with rails I followed this [guide](https://medium.com/@pjbelo/s
 
 ## Live Demo
 I will feel honored if you try my app and tell me how to improve it.
-it is hosted on a Heroku Free account so be patience, sometimes it takes a while to load.
-[LifeStyle-Hack](lifestyle-hack.herokuapp.com)
+it is hosted on a Heroku Free account so be patient, sometimes it takes a while to load.
+[LifeStyle-Hack](https://lifestyle-hack.herokuapp.com)
 
 ## Presentation Video
 
