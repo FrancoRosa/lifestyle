@@ -36,7 +36,7 @@
 /config/master.key
 
 #Ignore google storage key
-/config/secrets/sensornetwork.json
+/config/secrets/google_api_key.json
 
 /public/packs
 /public/packs-test

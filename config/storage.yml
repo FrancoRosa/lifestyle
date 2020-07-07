@@ -18,7 +18,8 @@ local:
 google:
   service: GCS
   project: sensorsnetwork
-  credentials: <%= Rails.root.join("config/secrets/sensornetwork.json") %>
+  #credentials: <%= Rails.root.join("config/secrets/google_api_key.json") %>
+  credentials: <%= ENV["GCS_api_key"] %>
   bucket: sensor_network
 
 # Use rails credentials:edit to set the Azure Storage secret (as azure_storage:storage_access_key)
