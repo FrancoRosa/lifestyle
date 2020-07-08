@@ -4,7 +4,7 @@ class Article < ApplicationRecord
   has_many :votes, dependent: :destroy
 
   validates :author_id, presence: true
-  validates :title, presence: true, length: { in: 5..100 }
+  validates :title, presence: true, length: { in: 5..100 }, uniqueness: true
   validates :text, presence: true, length: { in: 5..1000 }
   validates :image, presence: true
 
