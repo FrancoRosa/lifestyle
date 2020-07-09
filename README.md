@@ -28,7 +28,7 @@ it is hosted on a Heroku Free account so be patient, sometimes it takes a while 
 - Simple log-in function just using your username
 - User can vote for its favorite article
 - Most Voted article shown big on home page
-- Links colored according to the natigation
+- Links colored according to the navigation
 - Articles shown according to the time they where created
 
 ## Built With
@@ -38,6 +38,19 @@ it is hosted on a Heroku Free account so be patient, sometimes it takes a while 
 - Postgres
 - Deploy on [Heroku](heroku.com)
 - Storaged on [Google](https://cloud.google.com)
+- Test with RSpec, Capybara
+
+## Deploy
+To deploy this project localy, download or clone this repo
+1. Run migrations
+```
+    $ rails db:migrate
+```
+2. Run the project
+```
+    $ rails server
+```
+3. Try it, open your browser on ```localhost:3000``` and play around with the web app
 
 ## Author
 
