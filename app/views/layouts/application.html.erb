@@ -12,58 +12,21 @@
   </head>
 
   <body>
-    <% if notice %>
-      <div class="b-green notification">
-        <p id="notice"><%= notice %></p>
-      </div>
-    <% end %>
-
-    <% if alert %>
-      <div class="b-red notification">
-        <p id="alert"><%= alert %></p>
-      </div>
-    <% end %>
+    <%= show_notice %>
+    <% path %>
     
     <nav class="nav-bar">
       <div class="nav-brand">
         <p>HACKADAY</p>
       </div>
       <ul class="nav-links">
-      <% current_uri = request.env['PATH_INFO'] %>
-      <% if current_uri.include?("article")%>
-        <li><%= link_to  "HOME", articles_path, class: "text-orange" %></li>
-      <% else %>
-        <li><%= link_to  "HOME", articles_path, class: "text-grey-light" %></li>
-      <% end %>  
-      <% @nav_categories.each do |category| %>
-        <% if current_uri.include?("categories/#{category.id}")%>
-          <li><%= link_to category.name.upcase, category, class: "text-orange" %></li>
-        <% else %>
-          <li><%= link_to category.name.upcase, category, class: "text-grey-light" %></li>
+        <li><%= link_to  "HOME", articles_path, class: color_selector("article") %></li>
+        <% @nav_categories.each do |category| %>
+          <li><%= link_to category.name.upcase, category, class: color_selector("categories/#{category.id}") %></li>
         <% end %>
-      <% end %>
       </ul>
       <ul class="nav-sign">
-      <% if session[:current_user].nil? %>
-        <% if current_uri.include?("/sign_in")%>
-          <li><%= link_to "LOGIN", sign_in_path, class: "text-orange" %></li>
-        <% else %>
-          <li><%= link_to "LOGIN", sign_in_path, class: "text-grey-light" %></li>
-        <% end %>
-        <li>|</li>
-        <% if current_uri.include?("/users/new")%>
-          <li><%= link_to "REGISTER", new_user_path, class: "text-orange" %></li>
-        <% else %>
-          <li><%= link_to "REGISTER", new_user_path, class: "text-grey-light" %></li>
-        <% end %>
-        <li><i class="fas fa-search text-grey-light"></i></li>
-      <% else %>
-        <li class="text-orange">WELCOME <%= session[:current_user_name].upcase %></li>
-        <li> <%= link_to '<i class="fas fa-pen text-grey"></i>'.html_safe, new_article_path %> </li>
-        <li class="text-grey-light">|</li>
-        <li><%= link_to  "LOGOUT", sign_out_path, class: "text-grey-light" %></li>
-      <% end %>
-        
+        <%= session_links %>
       </ul>
     </nav>
     <main>

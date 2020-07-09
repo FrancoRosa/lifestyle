@@ -1,12 +1,9 @@
 require 'rails_helper'
-
 describe Category do
-
-  subject { Category.new(name: name, 
-                        priority: priority) }
+  subject { Category.new(name: name, priority: priority) }
   let(:name) { 'MainCategory' }
   let(:priority) { 1 }
-  
+
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:priority) }
   it { should have_and_belong_to_many(:articles) }

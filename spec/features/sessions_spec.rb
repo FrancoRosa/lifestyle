@@ -2,9 +2,7 @@ require 'rails_helper'
 
 describe 'User Sessions', type: :feature do
   before :each do
-    if User.all.empty?
-      User.create(name: 'Registered')
-    end
+    User.create(name: 'Registered') if User.all.empty?
     visit sign_in_path
   end
 
@@ -29,7 +27,7 @@ describe 'User Sessions', type: :feature do
 
   context 'user signed in' do
     before do
-      fill_in 'Name', with: "Registered"
+      fill_in 'Name', with: 'Registered'
       click_button 'Sign in'
     end
 
