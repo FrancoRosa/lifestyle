@@ -2,16 +2,18 @@ module CategoriesHelper
   def session_votes(article)
     return if session[:current_user].nil?
 
-    vote = article.votes.find_by(user_id: session[:current_user])
-    if vote.nil?
+    vote = article.votes.byuser(session[:current_user])
+    if vote.empty?
       link_to('<i class="far fa-thumbs-up"></i>'.html_safe,
               votes_path(article_id: article.id), method: :post, class: 'text-grey')
-    elsif vote.article_id == article.id
-      link_to('<i class="far fa-thumbs-down"></i>'.html_safe,
-              vote_path(vote.id), method: :delete, class: 'text-orange')
     else
-      link_to('<i class="far fa-thumbs-up"></i>'.html_safe,
-              votes_path(article_id: article.id), method: :post, class: 'text-grey')
+      if vote[0].article_id == article.id
+        link_to('<i class="far fa-thumbs-down"></i>'.html_safe,
+                vote_path(vote[0].id), method: :delete, class: 'text-orange')
+      else
+        link_to('<i class="far fa-thumbs-up"></i>'.html_safe,
+                votes_path(article_id: article.id), method: :post, class: 'text-grey')
+      end
     end
   end
 

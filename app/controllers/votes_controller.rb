@@ -22,7 +22,7 @@ class VotesController < ApplicationController
   end
 
   def update
-    @vote = Vote.find_by(user_id: session[:current_user])
+    @vote = Vote.byuser(session[:current_user])
     if @vote.update(vote_params)
       redirect_to article_path(@vote.article_id), notice: 'Vote was successfully updated.'
     else
@@ -39,7 +39,7 @@ class VotesController < ApplicationController
   private
 
   def set_vote
-    @vote = Vote.find_by(user_id: session[:current_user])
+    @vote = Vote.byuser(session[:current_user])
   end
 
   def vote_params

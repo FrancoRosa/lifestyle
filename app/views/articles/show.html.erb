@@ -15,7 +15,7 @@
 
       <p class="move-right text-white"> 
       <% unless session[:current_user].nil? %>
-        <% vote = @article.votes.find_by(user_id: session[:current_user]) %>
+        <% vote = @article.votes.byuser(session[:current_user]) %>
         <% if vote.nil? %>
           <%= link_to 'Vote', votes_path(article_id: @article.id), method: :post, class:"text-white p-1" %>
         <% else %>
