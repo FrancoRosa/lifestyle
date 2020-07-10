@@ -66,7 +66,7 @@ main {
 }
 
 .featured-container {
-  width: 70%;
+  width: 75%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,7 +98,7 @@ main {
 }
 
 .miscellaneous-container {
-  width: 30%;
+  width: 25%;
   display: flex;
   justify-content: center;
   align-items: center;
