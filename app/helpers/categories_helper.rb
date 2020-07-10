@@ -6,14 +6,12 @@ module CategoriesHelper
     if vote.empty?
       link_to('<i class="far fa-thumbs-up"></i>'.html_safe,
               votes_path(article_id: article.id), method: :post, class: 'text-grey')
+    elsif vote[0].article_id == article.id
+      link_to('<i class="far fa-thumbs-down"></i>'.html_safe,
+              vote_path(vote[0].id), method: :delete, class: 'text-orange')
     else
-      if vote[0].article_id == article.id
-        link_to('<i class="far fa-thumbs-down"></i>'.html_safe,
-                vote_path(vote[0].id), method: :delete, class: 'text-orange')
-      else
-        link_to('<i class="far fa-thumbs-up"></i>'.html_safe,
-                votes_path(article_id: article.id), method: :post, class: 'text-grey')
-      end
+      link_to('<i class="far fa-thumbs-up"></i>'.html_safe,
+              votes_path(article_id: article.id), method: :post, class: 'text-grey')
     end
   end
 
