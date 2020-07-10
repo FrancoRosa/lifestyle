@@ -1,0 +1,13 @@
+<div>
+  <span class="cat-name"><%= @category.name %></span>
+</div>
+<p class="mt-2"><%= article.title %></p>
+<p class="text-grey-light">by <%= article.author.name %> <%= time_ago_in_words(article.created_at) %> </p>
+<div class="truncated">
+  <p><%= article.text %></p>
+</div>
+<p><%= link_to 'More', article, class: "text-orange" %></p>
+<p class="article-links">
+  <%= session_votes(article) %>
+  <%= session_edit_destroy(article) %>
+</p>
