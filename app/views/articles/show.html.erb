@@ -1,36 +1,21 @@
-<section class="container">
+<section class="container b-white">
   <div class="new-form">
     <div>
-      <h1 class="text-white"><%= @article.title.upcase %></h1>
-      <hr>
-      <h3 class="text-white move-right">by <%= @article.author.name %><h3>
-      <h4 class="text-white move-right"><%= time_ago_in_words(@article.created_at) %> ago</h4>
+      <h1 class="text-grey"><%= @article.title.upcase %></h1>
+      <hr class="b-orange">
+      <h3 class="text-grey-light move-right">by <%= @article.author.name %><h3>
+      <h4 class="text-grey-light move-right"><%= time_ago_in_words(@article.created_at) %> ago</h4>
     </div>
     <article class="first-container">
       <div class="featured-container">
         <%= image_tag @article.image %>
       </div>
-      <p class="featured-text-container p-2"><%= @article.text %><p>
+      <p class="featured-text-container p-2 text-grey"><%= @article.text %><p>
     </article>
 
-      <p class="move-right text-white"> 
-      <% unless session[:current_user].nil? %>
-        <% vote = @article.votes.byuser(session[:current_user]) %>
-        <% if vote.nil? %>
-          <%= link_to 'Vote', votes_path(article_id: @article.id), method: :post, class:"text-white p-1" %>
-        <% else %>
-          <% if vote.article_id == @article.id %>
-            <%= link_to 'Unvote', vote_path(vote.id), method: :delete, class:"text-white p-1" %>
-          <% else %>
-            <%= link_to 'Vote', votes_path(article_id: @article.id), method: :post, class:"text-white p-1" %>
-          <% end %>
-        <% end %>
-      <% end %>
-      <% if @article.author_id == session[:current_user] %>
-        <%= link_to 'Edit', edit_article_path(@article), class:"text-white p-1" %>
-        <%= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' }, class:"text-white p-1" %>
-      <% end %>
-      <%= link_to 'Back', articles_path, class:"text-white p-1" %>
+      <p class="move-right show-links"> 
+      <%= session_votes(@article) %>
+      <%= session_edit_destroy(@article) %>
       </p>
   </div>
 </section>

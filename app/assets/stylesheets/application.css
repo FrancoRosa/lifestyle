@@ -13,6 +13,12 @@
   padding: 0;
 }
 
+main {
+  width: 99%;
+  margin: auto;
+}
+
+
 .nav-bar {
   display: flex;
   justify-content: space-between;
@@ -76,7 +82,6 @@
   justify-content: center;
   align-items: center;
   text-overflow: ellipsis;
-  overflow: scroll;
 
   position: relative;
   color: white;
@@ -396,6 +401,14 @@ input[type="file"]  {
   background-color: rgba(255, 94, 0, 0.384);
 }
 
+.b-white{
+  background-color: white;
+}
+
+.b-orange{
+  background-color: var(--orange);
+}
+
 .notification {
   position: absolute;
   top: 0;
@@ -406,4 +419,9 @@ input[type="file"]  {
 
 .notification p{
   text-align: center;    
+}
+
+.show-links span{
+  padding: 0 10px;
+
 }
