@@ -1,0 +1,14 @@
+<section class="container">
+  <div class="new-form">
+    <div>
+      <h1 class="text-white">NEW USER</h1>
+      <hr class="b-orange">
+    </div>
+    <%= render 'form', user: @user %>
+    <div class="move-right">  
+      <%= link_to users_path do %>
+      <button class="button">Back</button>
+    </div>  
+    <% end %>
+  </div>
+</section>

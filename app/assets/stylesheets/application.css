@@ -1,15 +1,427 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+:root {
+  --orange: #f86309;
+  --grey: #4e443e;
+  --grey-light: #847f7b;
+  --brown: #4e443e;
+  --white: #ffffff;
+  --yelow: #fefe00;
+}
+
+* {
+  font-family: 'Kanit', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  width: 99%;
+  margin: auto;
+}
+
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 9vh;
+}
+
+.nav-bar .nav-brand{
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+}
+
+.nav-bar .nav-brand p{
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--grey);
+  padding: 0 20px;
+  margin: 0;
+}
+
+
+.nav-bar .nav-links{
+  display: flex;
+  list-style-type: none;
+}
+
+.nav-bar .nav-links li {
+  padding: 0 10px;
+}
+
+.nav-bar li {
+  margin: 0 5px;
+}
+
+.nav-bar .nav-sign{
+  display: flex;
+  list-style-type: none;
+  color: var(--grey-light);
+}
+
+.first-container{
+  display: flex;
+  height: 41vh;
+}
+
+.featured-container {
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  position: relative;
+  color: white;
+}
+
+.featured-text-container {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-overflow: ellipsis;
+
+  position: relative;
+  color: white;
+}
+
+.featured-container img {
+  width: 1200px;
+}
+
+.featured-text {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+.miscellaneous-container {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.miscellaneous-container img{
+  height: 600px;
+}
+
+.miscellaneous-text {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+.second-container {
+  display: flex;
+  height: 41vh;
+}
+
+.category-container {
+  height: 41vh;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  position: relative;
+  color: white;;
+}
+
+.category-title {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+.category-title a{
+  font-weight: 400;
+  font-size: 25px;
+}
+
+hr{
+  height: 3px;
+  border-width: 0;
+  background-color: var(--yelow);
+  margin-top: -5px;
+}
+
+.footer {
+  background-color: var(--brown);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 9vh;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer .logo {
+  height: 75px;
+  display: flex;
+  align-items: center;
+}
+
+.footer .logo img{
+  height: 75px;
+}
+
+.footer .policy {
+  display: flex;
+  align-items: center;
+}
+
+.footer .policy p{
+  margin: 0 10px;
+}
+
+.footer .social {
+  display: flex;
+  align-items: center;
+}
+
+.footer .social i {
+  font-size: 30px;
+  color: var(--orange);
+  padding: 0 5px;
+}
+
+.text-white {
+  color: var(--white);
+}
+
+.text-orange {
+  color: var(--orange);
+}
+
+.text-grey-light {
+  color: var(--grey-light);
+}
+
+.text-grey {
+  color: var(--grey);
+}
+
+.is-orange {
+  background-color: var(--orange);
+}
+
+a {
+  text-decoration: none;
+}
+ 
+a:active {
+  color: var(--orange)
+}
+
+.gradient-right {
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.75) 75%);
+}
+
+.gradient-left {
+  background: linear-gradient(190deg, rgba(255,255,255,0.1) 14%, rgba(0,0,0,0.85) 70%);
+}
+
+.gradient {
+  background: linear-gradient(-10deg, rgba(255,255,255,0.1) 60%, rgba(0,0,0,0.85) 81%),
+              linear-gradient(190deg, rgba(255,255,255,0.1) 14%, rgba(0,0,0,0.85) 70%);
+}
+
+.to-back{
+  z-index: -1;
+}
+
+.to-middle {
+  z-index: 0;
+}
+
+
+.text-medium{
+  font-size: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  background-color: var(--grey-light);
+}
+
+.new-form{
+  width: 50%;
+  height: 82vh;
+}
+
+.actions {
+  display: flex;
+  justify-items: right;
+}
+
+.button {
+  font-size: 20px;
+  border-color: white;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.field {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+
+}
+
+.field label {
+  font-size: 20px;
+  color: white;
+
+}
+
+.field input {
+  width: 70%;
+  font-size: 20px;
+  border-color: white;
+  border-radius: 5px;
+}
+
+.field textarea {
+  width: 70%;
+  font-size: 20px;
+  border-color: white;
+  border-radius: 5px;
+}
+
+input[type="file"]  {
+  color: white;
+
+}
+
+.field select {
+  width: 70%;
+  font-size: 20px;
+  border-color: white;
+  border-radius: 5px;
+}
+
+.move-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.article-container {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.article-text {
+  min-width: 25%;
+  max-width: 25%;
+  height: 26vh;
+  background-color: white;
+  position: relative;
+  padding: 1rem 0;
+}
+
+.article-text p{
+  padding: 0 20px;
+}
+
+.truncated {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-height: 3rem;
+}
+
+.article-text .cat-name{
+  color: var(--orange);
+  border-bottom: 2px solid var(--orange);
+  padding-bottom: 5px;
+  max-width: 15%;
+  margin: 20px 10px;
+}
+
+.article-image {
+  min-width: 25%;
+  max-width: 25%;
+  height: 41vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.article-image img {
+  height: 100%;
+}
+
+.article-links {
+  position: absolute;
+  bottom: -3rem;
+}
+
+.items tr {
+  color: white;
+}
+
+.items th, td {
+  padding: 5px 40px 0 0;
+}
+
+.p-2 {
+  padding: 20px;
+}
+
+.ml-2 {
+  margin-left: 5rem;
+}
+
+.mt-2 {
+  margin-top: 5rem;
+}
+
+.p-1 {
+  padding: 10px;
+}
+
+.b-green{
+  background-color: greenyellow;
+}
+
+.b-red{
+  background-color: rgba(255, 94, 0, 0.384);
+}
+
+.b-white{
+  background-color: white;
+}
+
+.b-orange{
+  background-color: var(--orange);
+}
+
+.notification {
+  position: absolute;
+  top: 0;
+  left: 25%;
+  width: 50%;
+  
+}
+
+.notification p{
+  text-align: center;    
+}
+
+.show-links span{
+  padding: 0 10px;
+
+}

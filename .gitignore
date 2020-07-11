@@ -7,6 +7,8 @@
 # Ignore bundler config.
 /.bundle
 
+/.vscode
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
@@ -33,9 +35,14 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+#Ignore google storage key
+/config/secrets/google_api_key.json
+
 /public/packs
 /public/packs-test
 /node_modules
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+# Ignore application configuration
+/config/application.yml

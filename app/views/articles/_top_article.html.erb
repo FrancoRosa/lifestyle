@@ -1,0 +1,12 @@
+<article class="featured-container gradient-left">
+  <%= image_tag @featured.image, class: "to-back" %>    
+  <%= link_to @featured do %>
+    <div class="featured-text">
+      <span class="text-orange text-medium"><%= @featured.title %></span><br> 
+      <span class="text-grey-light">by</span>
+      <span class="text-orange"><%= @featured.author.name %></span>
+      <span class="text-grey-light"><%= time_ago_in_words(@featured.created_at) %> ago</span>
+      <p class="text-white truncated"><%= @featured.text %></p>
+    </div>
+  <% end %>
+</article>

@@ -1,0 +1,21 @@
+<section class="container b-white">
+  <div class="new-form">
+    <div>
+      <h1 class="text-grey"><%= @article.title.upcase %></h1>
+      <hr class="b-orange">
+      <h3 class="text-grey-light move-right">by <%= @article.author.name %><h3>
+      <h4 class="text-grey-light move-right"><%= time_ago_in_words(@article.created_at) %> ago</h4>
+    </div>
+    <article class="first-container">
+      <div class="featured-container">
+        <%= image_tag @article.image %>
+      </div>
+      <p class="featured-text-container p-2 text-grey"><%= @article.text %><p>
+    </article>
+
+      <p class="move-right show-links"> 
+      <%= session_votes(@article) %>
+      <%= session_edit_destroy(@article) %>
+      </p>
+  </div>
+</section>

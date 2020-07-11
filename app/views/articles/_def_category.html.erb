@@ -1,0 +1,13 @@
+<article class="category-container gradient">
+  <img class="to-back" src="https://previews.123rf.com/images/kaymosk/kaymosk1804/kaymosk180400006/100130939-error-404-page-not-found-error-with-glitch-effect-on-screen-vector-illustration-for-your-design-.jpg" alt="not-found"/>
+  <div class="category-title">
+    <%= link_to category.name, category, class: "text-white" %>
+    <hr>
+  </div>
+  <div class="featured-text">
+    <span class="text-white text-medium">There are no articles in this category, yet.</span><br> 
+    <span class="text-grey-light">by</span>
+    <span class="text-orange">Me</span>
+    <span class="text-grey-light"><%= time_ago_in_words(Time.now) %> ago</span>
+  </div>
+</article>

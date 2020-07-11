@@ -1,0 +1,13 @@
+<article class="category-container gradient">
+  <%= image_tag article.image, class: "to-back" %>    
+  <div class="category-title">
+    <%= link_to category.name, category, class: "text-white" %>
+    <hr>
+  </div>
+  <div class="featured-text">
+    <span class="text-white text-medium"><%= article.title %></span><br> 
+    <span class="text-grey-light">by</span>
+    <span class="text-orange"><%= article.author.name %></span>
+    <span class="text-grey-light"><%= time_ago_in_words(article.created_at) %> ago</span>
+  </div>
+</article>

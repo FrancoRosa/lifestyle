@@ -1,0 +1,5 @@
+<div class="article-container">
+  <% @articles.each_with_index do |article,index| %>
+    <%= row_selector(article, index) %>
+  <% end %>
+</div>

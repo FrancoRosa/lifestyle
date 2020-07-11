@@ -1,0 +1,26 @@
+<section class="container">
+  <div class="new-form">
+    <div>
+      <h1 class="text-white">VOTES</h1>
+      <hr>
+    </div>
+  <table class="items">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Article</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @votes.each do |vote| %>
+        <tr>
+          <td><%= vote.user_id %></td>
+          <td><%= vote.article_id %></td>
+          <td><%= link_to 'Destroy', vote, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-orange"  %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

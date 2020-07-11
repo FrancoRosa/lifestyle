@@ -1,3 +1,5 @@
+# rubocop:disable all
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -5,8 +7,8 @@ ruby '2.6.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+
+gem 'figaro'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -23,14 +25,19 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
-
+gem 'image_processing', '~> 1.2'
+gem "google-cloud-storage", "~> 1.8", require: false
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 4.0.0'
+  gem 'shoulda-matchers'
+  gem 'database_cleaner' 
+  gem 'factory_bot_rails'
+
 end
 
 group :development do
@@ -52,3 +59,13 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :development, :test do
+  gem 'sqlite3'
+end
+ 
+group :production do
+  gem 'pg'
+end
+
+# rubocop:enable all

@@ -1,0 +1,30 @@
+<section class="container">
+  <div class="new-form">
+    <div>
+      <h1 class="text-white">CATEGORIES</h1>
+      <hr>
+    </div>
+    <table class="items">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Priority</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @categories.each do |category| %>
+          <tr>
+            <td><%= category.name %></td>
+            <td><%= category.priority %></td>
+            <td><%= link_to 'Show', category, class: "text-grey" %></td>
+            <td><%= link_to 'Edit', edit_category_path(category), class: "text-grey" %></td>
+            <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-orange" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <%= link_to 'New Category', new_category_path, class: "text-white move-right" %>
+  </div>
+</section>

@@ -1,0 +1,42 @@
+<%= form_with(model: article, local: true) do |form| %>
+  <% if article.errors.any? %>
+    <div id="error_explanation">
+      <h2 class="text-white"><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+        <% article.errors.full_messages.each do |message| %>
+          <li class="text-orange ml-2"><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label "Title:" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Text:" %>
+    <%= form.text_area :text %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Image:" %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Category:" %>
+     <% if @article.categories.empty? %>
+       <%= collection_select(:category, :id, @categories, :id, :name, { selected: @categories.first.id } ) %>
+     <% else %>
+       <%= collection_select(:category, :id, @categories, :id, :name, { selected: @article.categories.first.id } ) %>
+     <% end %>
+  </div>
+
+
+  <div class="actions move-right">
+    <%= form.submit class: "button"%>
+  </div>
+<% end %>

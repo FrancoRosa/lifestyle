@@ -1,0 +1,15 @@
+<section class="first-container">
+  <%= featured_article %>
+  <article class="miscellaneous-container gradient-right">
+    <img class="to-back" src="https://media2.giphy.com/media/dLolp8dtrYCJi/giphy.webp?cid=ecf05e472f92db77f46654b1de34805cb82e2b08f4efd45c&rid=giphy.webp" alt="not-found"/>
+    <div class="miscellaneous-text">
+      <span class="text-white">Talk is cheap. Show me the</span> 
+      <span class="text-orange">code.</span>
+    </div>
+  </article>
+</section>
+<section class="second-container">
+  <% @categories.each do |category| %>
+    <%= latest_article(category) %>
+  <% end %>
+</section>
